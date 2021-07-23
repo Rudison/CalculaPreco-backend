@@ -48,6 +48,15 @@ class GetItensCalcPreco {
 
   @ViewColumn({ name: 'PercCPMF' })
   PercCPMF: number;
+
+  @ViewColumn({ name: 'CodBarraProd' })
+  CodBarraProd: string;
+
+  @ViewColumn({ name: 'CodRefProd' })
+  CodRefProd: string;
+
+  @ViewColumn({ name: 'CodFabrProd' })
+  CodFabrProd: string;
 }
 
 export default GetItensCalcPreco;

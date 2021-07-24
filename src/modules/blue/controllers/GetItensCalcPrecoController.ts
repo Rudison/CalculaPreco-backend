@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import AlterarItemERPService from '../services/AlterarItemERPService';
 import GetItensCalcPrecoService from '../services/GetItensCalcPrecoService';
 
 export default class GetItensCalcPrecoController {
@@ -17,5 +18,26 @@ export default class GetItensCalcPrecoController {
     });
 
     return response.json(valores);
+  }
+
+  public async setItemERP(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
+    const { codItem } = request.params;
+    const { PrecoUnitPrz, PrecoUnitRev, PrecoUnitVndProd } = request.body;
+
+    console.log(codItem, PrecoUnitPrz, PrecoUnitRev, PrecoUnitVndProd);
+
+    const alterarItemERP = new AlterarItemERPService();
+
+    const itemERP = await alterarItemERP.execute({
+      codItem,
+      PrecoUnitPrz,
+      PrecoUnitRev,
+      PrecoUnitVndProd
+    });
+
+    return response.json(itemERP);
   }
 }

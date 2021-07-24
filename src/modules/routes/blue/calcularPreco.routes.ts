@@ -17,4 +17,17 @@ itemBlueRouter.get(
   ItemCalcController.getItensCalcPreco
 );
 
+itemBlueRouter.put(
+  '/:codItem',
+  celebrate({
+    [Segments.PARAMS]: { codItem: Joi.string().required() },
+    [Segments.BODY]: {
+      PrecoUnitPrz: Joi.number(),
+      PrecoUnitRev: Joi.number(),
+      PrecoUnitVndProd: Joi.number()
+    }
+  }),
+  ItemCalcController.setItemERP
+);
+
 export default itemBlueRouter;

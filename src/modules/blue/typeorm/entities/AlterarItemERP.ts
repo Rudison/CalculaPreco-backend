@@ -1,7 +1,7 @@
 import { ViewColumn, ViewEntity } from 'typeorm';
 @ViewEntity({
   name: 'SP_ALTERAR_ITEM_CALC(CodItem, PrecoUnitPrz, PrecoUnitRev, PrecoUnitVndProd)',
-  database: 'blueConn'
+  database: 'default'
 })
 class AlterarItemERP {
   @ViewColumn({ name: 'CodItem' })

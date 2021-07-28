@@ -13,7 +13,7 @@ class GetItensCalcPrecoService {
     codRefProd,
     codFabrProd
   }: IRequest): Promise<GetVendasVendedorMeta | undefined> {
-    const conn = getConnection('blueConn');
+    const conn = getConnection('default');
 
     const valorVendedor = await conn.query(
       `select * from GetItensCalcPreco('${codBarraProd}', '${codRefProd}', '${codFabrProd}' )`

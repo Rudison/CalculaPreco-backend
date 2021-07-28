@@ -16,7 +16,7 @@ class AlterarItemERPService {
     PrecoUnitRev,
     PrecoUnitVndProd
   }: IRequest): Promise<AlterarItemERP> {
-    const conn = getConnection('blueConn');
+    const conn = getConnection('default');
 
     console.log(codItem, PrecoUnitPrz, PrecoUnitRev, PrecoUnitVndProd);
 

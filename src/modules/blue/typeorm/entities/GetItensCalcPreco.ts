@@ -1,7 +1,7 @@
 import { ViewColumn, ViewEntity } from 'typeorm';
 @ViewEntity({
   name: 'GetItensCalcPreco(CodBarraProd, CodRefProd, CodFabrProd)',
-  database: 'blueConn'
+  database: 'default'
 })
 class GetItensCalcPreco {
   @ViewColumn({ name: 'CodItem' })

@@ -2,6 +2,7 @@ import { getConnection } from 'typeorm';
 import GetVendasVendedorMeta from '../typeorm/entities/GetItensCalcPreco';
 
 interface IRequest {
+  codItem: string;
   codBarraProd: string;
   codRefProd: string;
   codFabrProd: string;
@@ -9,6 +10,7 @@ interface IRequest {
 
 class GetItensCalcPrecoService {
   public async getVendasBlue({
+    codItem,
     codBarraProd,
     codRefProd,
     codFabrProd
@@ -16,7 +18,7 @@ class GetItensCalcPrecoService {
     const conn = getConnection('default');
 
     const valorVendedor = await conn.query(
-      `select * from GetItensCalcPreco('${codBarraProd}', '${codRefProd}', '${codFabrProd}' )`
+      `select * from GetItensCalcPreco('${codItem}', '${codBarraProd}', '${codRefProd}', '${codFabrProd}' )`
     );
 
     return valorVendedor;

@@ -6,9 +6,10 @@ const itemBlueRouter = Router();
 const ItemCalcController = new GetItensCalcController();
 
 itemBlueRouter.get(
-  '/:codBarraProd/:codRefProd/:codFabrProd',
+  '/:codItem/:codBarraProd/:codRefProd/:codFabrProd',
   celebrate({
     [Segments.PARAMS]: {
+      codItem: Joi.string(),
       codBarraProd: Joi.string(),
       codRefProd: Joi.string(),
       codFabrProd: Joi.string()

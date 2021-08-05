@@ -7,11 +7,12 @@ export default class GetItensCalcPrecoController {
     request: Request,
     response: Response
   ): Promise<Response> {
-    const { codBarraProd, codRefProd, codFabrProd } = request.params;
+    const { codItem, codBarraProd, codRefProd, codFabrProd } = request.params;
 
     const itemBlue = new GetItensCalcPrecoService();
 
     const valores = await itemBlue.getVendasBlue({
+      codItem,
       codBarraProd,
       codRefProd,
       codFabrProd
